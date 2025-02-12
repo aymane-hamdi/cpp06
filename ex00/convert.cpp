@@ -85,9 +85,17 @@ void interger (const char *nb)
 
 void floating (const char *nb)
 {
-    float num;
-   
-    num = std::stof(nb);
+    float  num;
+    char nu[std::strlen(nb)];
+    int i = 0;
+    while(nb[i] != 'f' && nb[i])
+    {
+        nu[i] = nb[i];
+        i++;
+    }
+    nu[i] ='\0'; 
+    
+    std::istringstream(nu) >> num;
     int intPart = static_cast<int>(num);
     if (intPart >= 32 && intPart  <= 126)
         std::cout << "char :" << "'" << static_cast<char>(intPart)<< "'"<< std::endl;
@@ -95,7 +103,7 @@ void floating (const char *nb)
        std::cout << "char :"<< "Non displayable" << std::endl; 
     std::cout << "int :"<< static_cast<int>(num) << std::endl;
     std::cout << "float :"<<std::fixed << std::setprecision(3) << num << "f" << std::endl;
-    std::cout << "double :"<<std::fixed << std::setprecision(3) << static_cast<double>(num) << std::endl;
+    std::cout << "double :"<<std::fixed << std::setprecision(3) << num << std::endl;
 }
 
 void doubling (const char *nb)
@@ -109,6 +117,6 @@ void doubling (const char *nb)
     else
        std::cout << "char :"<< "Non displayable" << std::endl; 
     std::cout << "int :"<< static_cast<int>(num) << std::endl;
-    std::cout << "float :"<<std::fixed << std::setprecision(3) << static_cast<float>(num) << "f" << std::endl;
+    std::cout << "float :"<<std::fixed << std::setprecision(3) << num<< "f" << std::endl;
     std::cout << "double :"<<std::fixed << std::setprecision(3) << num << std::endl;
 }
