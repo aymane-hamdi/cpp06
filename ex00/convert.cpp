@@ -83,27 +83,37 @@ void interger (const char *nb)
     std::cout << "double  :"<<std::fixed << std::setprecision(3) << static_cast<double>(num) << std::endl;
 }
 
-void floating (const char *nb)
+void floating(const char *nb)
 {
-    float  num;
-    char nu[std::strlen(nb)];
+    int len = 0;
+    while (nb[len])
+        len++;
+
+    char *nu = new char[len + 1]; // Allocation dynamique pour éviter VLA
+
     int i = 0;
-    while(nb[i] != 'f' && nb[i])
+    while (nb[i] && nb[i] != 'f') // Copie de la partie avant 'f'
     {
         nu[i] = nb[i];
         i++;
     }
-    nu[i] ='\0'; 
-    
-    std::istringstream(nu) >> num;
+    nu[i] = '\0'; // Terminaison de la chaîne
+
+    std::istringstream iss(nu);
+    float num;
+    iss >> num; // Conversion en float
+
+    delete[] nu;
+
     int intPart = static_cast<int>(num);
-    if (intPart >= 32 && intPart  <= 126)
-        std::cout << "char :" << "'" << static_cast<char>(intPart)<< "'"<< std::endl;
+    if (intPart >= 32 && intPart <= 126)
+        std::cout << "char   : '" << static_cast<char>(intPart) << "'" << std::endl;
     else
-       std::cout << "char :"<< "Non displayable" << std::endl; 
-    std::cout << "int :"<< static_cast<int>(num) << std::endl;
-    std::cout << "float :"<<std::fixed << std::setprecision(3) << num << "f" << std::endl;
-    std::cout << "double :"<<std::fixed << std::setprecision(3) << num << std::endl;
+        std::cout << "char   : Non displayable" << std::endl;
+
+    std::cout << "int    : " << intPart << std::endl;
+    std::cout << "float  : " << std::fixed << std::setprecision(3) << num << "f" << std::endl;
+    std::cout << "double : " << std::fixed << std::setprecision(3) << static_cast<double>(num) << std::endl;
 }
 
 void doubling (const char *nb)
