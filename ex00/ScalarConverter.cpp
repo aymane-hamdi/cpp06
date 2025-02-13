@@ -38,8 +38,11 @@ void ScalarConverter::convert (std::string nb)
         case  TYPE_FLOAT:
             floating(nb.c_str());
             break;
-         case  TYPE_DOUBLE:
+        case  TYPE_DOUBLE:
             doubling(nb.c_str());
+            break;
+        case TYPE_SPECIAL:
+            infini(nb.c_str());
             break;
     }
 }

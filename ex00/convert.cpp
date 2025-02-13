@@ -4,6 +4,14 @@
 #include <iomanip> // Pour std::fixed et std::setprecision
 e_type whichType(const char *str, size_t len)
 {
+   if (strncmp(str, "-inff", len) == 0 || 
+        strncmp(str, "+inff", len) == 0 || 
+        strncmp(str, "-inf", len) == 0 || 
+        strncmp(str, "+inf", len) == 0 || 
+        strncmp(str, "nan", len) == 0)
+    {
+        return TYPE_SPECIAL;
+    }
     if (len == 0)
     {
         return TYPE_UNKNOWN;
@@ -89,15 +97,15 @@ void floating(const char *nb)
     while (nb[len])
         len++;
 
-    char *nu = new char[len + 1]; // Allocation dynamique pour éviter VLA
+    char *nu = new char[len + 1];
 
     int i = 0;
-    while (nb[i] && nb[i] != 'f') // Copie de la partie avant 'f'
+    while (nb[i] && nb[i] != 'f')
     {
         nu[i] = nb[i];
         i++;
     }
-    nu[i] = '\0'; // Terminaison de la chaîne
+    nu[i] = '\0';
 
     std::istringstream iss(nu);
     float num;
@@ -129,4 +137,12 @@ void doubling (const char *nb)
     std::cout << "int :"<< static_cast<int>(num) << std::endl;
     std::cout << "float :"<<std::fixed << std::setprecision(3) << num<< "f" << std::endl;
     std::cout << "double :"<<std::fixed << std::setprecision(3) << num << std::endl;
+}
+
+void infini(const char *nb)
+{
+    std::cout << "char :"<< "impossible" << std::endl; 
+    std::cout << "int :"<< " impossible" << std::endl;
+    std::cout << "float :"<<nb<< "f" << std::endl;
+    std::cout << "double :"<< nb << std::endl;
 }

@@ -10,7 +10,8 @@ typedef enum
     TYPE_FLOAT,
     TYPE_CHAR,
     TYPE_DOUBLE,
-    TYPE_UNKNOWN
+    TYPE_UNKNOWN,
+    TYPE_SPECIAL
 } e_type;
 
 class ScalarConverter
@@ -27,4 +28,5 @@ void character (const char *nb);
 void interger (const char *nb);
 void floating (const char *nb);
 void doubling (const char *nb);
+void infini(const char *nb);
 #endif
