@@ -1,26 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Base.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahamdi <ahamdi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/13 21:17:31 by ahamdi            #+#    #+#             */
-/*   Updated: 2025/02/13 21:17:35 by ahamdi           ###   ########.fr       */
+/*   Created: 2025/02/13 21:24:49 by ahamdi            #+#    #+#             */
+/*   Updated: 2025/02/13 21:24:51 by ahamdi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScalarConverter.hpp"
+#ifndef BASE_HPP
+# define BASE_HPP
 
-int main(int argc, char **argv)
+class Base
 {
-	if (argc != 2)
-	{
-		std::cout << "Please enter a char/ int/ float/ double value\n";
-		return (0);
-	}
+	public:
+		virtual ~Base();
+};
 
-	ScalarConverter::convert(argv[1]);
-
-	return (0);
-}
+#endif

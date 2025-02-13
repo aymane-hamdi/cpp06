@@ -1,26 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Serializer.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahamdi <ahamdi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/13 21:17:31 by ahamdi            #+#    #+#             */
-/*   Updated: 2025/02/13 21:17:35 by ahamdi           ###   ########.fr       */
+/*   Created: 2025/02/13 21:10:33 by ahamdi            #+#    #+#             */
+/*   Updated: 2025/02/13 21:11:31 by ahamdi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScalarConverter.hpp"
+#ifndef SERIALIZER_HPP
+# define SERIALIZER_HPP
+# include <stdint.h>
+# include <iostream>
 
-int main(int argc, char **argv)
+struct Data
 {
-	if (argc != 2)
-	{
-		std::cout << "Please enter a char/ int/ float/ double value\n";
-		return (0);
-	}
+	std::string name;
+	int age;
+};
 
-	ScalarConverter::convert(argv[1]);
+class Serializer
+{
+    public:
+	Serializer(void);
+	Serializer(Serializer const &other);
+	Serializer &operator=(Serializer const &other);
+	~Serializer(void);
 
-	return (0);
-}
+	static uintptr_t serialize(Data* ptr);
+	static Data* deserialize(uintptr_t raw);
+};
+
+#endif

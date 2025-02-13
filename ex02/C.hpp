@@ -1,26 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   c.hpp                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahamdi <ahamdi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/13 21:17:31 by ahamdi            #+#    #+#             */
-/*   Updated: 2025/02/13 21:17:35 by ahamdi           ###   ########.fr       */
+/*   Created: 2025/02/13 21:26:37 by ahamdi            #+#    #+#             */
+/*   Updated: 2025/02/13 21:26:48 by ahamdi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScalarConverter.hpp"
+#ifndef C_HPP
+# define C_HPP
 
-int main(int argc, char **argv)
+#include "Base.hpp"
+
+class C : public Base
 {
-	if (argc != 2)
-	{
-		std::cout << "Please enter a char/ int/ float/ double value\n";
-		return (0);
-	}
+	
+};
 
-	ScalarConverter::convert(argv[1]);
-
-	return (0);
-}
+#endif

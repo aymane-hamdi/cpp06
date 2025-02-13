@@ -1,7 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   convert.cpp                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ahamdi <ahamdi@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/13 21:17:45 by ahamdi            #+#    #+#             */
+/*   Updated: 2025/02/13 21:17:49 by ahamdi           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ScalarConverter.hpp"
 # include <sstream> 
 #include <iostream>
-#include <iomanip> // Pour std::fixed et std::setprecision
+#include <iomanip>
+#include <cstring>
+
 e_type whichType(const char *str, size_t len)
 {
    if (strncmp(str, "-inff", len) == 0 || 
