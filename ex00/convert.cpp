@@ -6,7 +6,7 @@
 /*   By: ahamdi <ahamdi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 21:17:45 by ahamdi            #+#    #+#             */
-/*   Updated: 2025/02/13 21:17:49 by ahamdi           ###   ########.fr       */
+/*   Updated: 2025/02/17 15:20:28 by ahamdi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ e_type whichType(const char *str, size_t len)
         if (str[i] == '.')
         {
             dotCount++;
-            if (dotCount > 1)
+            if (dotCount > 1 || str[0] == '.')
             {
                 isDouble = false;
                 break;
@@ -123,7 +123,7 @@ void floating(const char *nb)
 
     std::istringstream iss(nu);
     float num;
-    iss >> num; // Conversion en float
+    iss >> num;
 
     delete[] nu;
 
