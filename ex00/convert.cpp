@@ -6,7 +6,7 @@
 /*   By: ahamdi <ahamdi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 21:17:45 by ahamdi            #+#    #+#             */
-/*   Updated: 2025/02/18 13:00:16 by ahamdi           ###   ########.fr       */
+/*   Updated: 2025/02/18 13:42:47 by ahamdi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,8 +102,8 @@ void character (const char *nb)
 {
     std::cout << "char   :" << " '" << nb << "'"<< std::endl;
     std::cout << "int    : " << static_cast<int>(nb[0]) << std::endl;
-    std::cout << "float  : " << std::fixed << std::setprecision(3) << static_cast<float>(nb[0]) << "f" << std::endl;
-    std::cout << "double : " << std::fixed << std::setprecision(3) << static_cast<double>(nb[0]) << std::endl;
+    std::cout << "float  : " << std::fixed << std::setprecision(1) << static_cast<float>(nb[0]) << "f" << std::endl;
+    std::cout << "double : " << std::fixed << std::setprecision(1) << static_cast<double>(nb[0]) << std::endl;
 }
 
 void interger (const char *nb)
@@ -116,31 +116,16 @@ void interger (const char *nb)
     else
         std::cout << "char    :"<< "Non displayable" << std::endl; 
     std::cout << "int     :"<< num << std::endl;
-    std::cout << "float   :"<<std::fixed << std::setprecision(3) << static_cast<float>(num) << "f" <<std::endl;
-    std::cout << "double  :"<<std::fixed << std::setprecision(3) << static_cast<double>(num) << std::endl;
+    std::cout << "float   :" << std::fixed<< std::setprecision(1) << static_cast<float>(num) << "f" <<std::endl;
+    std::cout << "double  :" << std::fixed<< std::setprecision(1) << static_cast<double>(num) << std::endl;
 }
 
 void floating(const char *nb)
 {
-    int len = 0;
-    while (nb[len])
-        len++;
-
-    char *nu = new char[len + 1];
-
-    int i = 0;
-    while (nb[i] && nb[i] != 'f')
-    {
-        nu[i] = nb[i];
-        i++;
-    }
-    nu[i] = '\0';
-
-    std::istringstream iss(nu);
-    float num;
-    iss >> num;
-
-    delete[] nu;
+   
+    char **endptr = NULL;
+    double  num;
+    num = strtod(nb, endptr);
 
     int intPart = static_cast<int>(num);
     if (intPart >= 32 && intPart <= 126)
@@ -164,8 +149,8 @@ void doubling (const char *nb)
     else
        std::cout << "char :"<< "Non displayable" << std::endl; 
     std::cout << "int :"<< static_cast<int>(num) << std::endl;
-    std::cout << "float :"<<std::fixed << std::setprecision(3) << num<< "f" << std::endl;
-    std::cout << "double :"<<std::fixed << std::setprecision(3) << num << std::endl;
+    std::cout << "float :" << num<< "f" << std::endl;
+    std::cout << "double :" << num << std::endl;
 }
 void print_inf(const char *str, size_t len)
 {
