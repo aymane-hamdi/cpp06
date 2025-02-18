@@ -6,7 +6,7 @@
 /*   By: ahamdi <ahamdi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 21:17:45 by ahamdi            #+#    #+#             */
-/*   Updated: 2025/02/18 13:42:47 by ahamdi           ###   ########.fr       */
+/*   Updated: 2025/02/18 13:46:30 by ahamdi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include <iostream>
 #include <iomanip>
 #include <cstring>
+#include <cstdlib>
 
 e_type whichType(const char *str, size_t len)
 {
@@ -167,7 +168,7 @@ void infini(const char *nb, size_t len)
 {
     std::cout << "char :"<< "impossible" << std::endl; 
     std::cout << "int  :"<< " impossible" << std::endl;
-    if(std::string(nb) == "nan" || std::string(nb) == "-inf"|  std::string(nb) == "+inf")
+    if(std::string(nb) == "nan" || std::string(nb) == "-inf" ||  std::string(nb) == "+inf")
         std::cout << "float  :"<< nb << "f" << std::endl;
     else
         std::cout << "float  :"<< nb << std::endl;
