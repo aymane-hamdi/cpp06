@@ -6,7 +6,7 @@
 /*   By: ahamdi <ahamdi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 21:17:45 by ahamdi            #+#    #+#             */
-/*   Updated: 2025/02/17 15:20:28 by ahamdi           ###   ########.fr       */
+/*   Updated: 2025/02/18 10:05:57 by ahamdi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ e_type whichType(const char *str, size_t len)
     {
         return TYPE_CHAR;
     }
-
+    
     bool isInteger = true;
     for (size_t i = 0; i < len; i++)
     {
@@ -50,16 +50,17 @@ e_type whichType(const char *str, size_t len)
     }
     int dotCount = 0;
     bool isDouble = true;
+    int j = 0;
    size_t i = 0;
     while(i < len)
     {
         if (str[i] == '.')
         {
             dotCount++;
-            if (dotCount > 1 || str[0] == '.')
+            j = i;
+            if (dotCount > 1 || j == 0 || str[i + 1] == '\0' || str[i + 1] == 'f')
             {
-                isDouble = false;
-                break;
+                return TYPE_UNKNOWN;
             }
         }
         else if (!isdigit(str[i]) && ((str[i] != '-' && str[i] != '+') || i != 0))
@@ -69,17 +70,23 @@ e_type whichType(const char *str, size_t len)
         }
         i++;
     }
-
-    if (!isDouble && str[i] == 'f')
-    {
-        return TYPE_FLOAT;
-    }
-
-    if (isDouble)
-    {
+    if (isDouble && str[0] != str[j] && str[len - 1] != str[j])
         return TYPE_DOUBLE;
+    dotCount = 0;
+    bool is_float = true;
+    j = 0;
+    i = 0;
+    while(i < len)
+    {
+        if (!isdigit(str[i]) && ((str[i] != '-' && str[i] != '+') || i != 0) && (str[i] == 'f' && str[i + 1] != '\0'))
+        {
+            is_float = false;
+            break;
+        }
+        i++;
     }
-
+    if (is_float)
+        return TYPE_FLOAT;
     return TYPE_UNKNOWN;
 }
 
