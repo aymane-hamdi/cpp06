@@ -6,7 +6,7 @@
 /*   By: ahamdi <ahamdi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 21:17:59 by ahamdi            #+#    #+#             */
-/*   Updated: 2025/02/13 21:18:02 by ahamdi           ###   ########.fr       */
+/*   Updated: 2025/02/18 12:48:09 by ahamdi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void ScalarConverter::convert (std::string nb)
             doubling(nb.c_str());
             break;
         case TYPE_SPECIAL:
-            infini(nb.c_str());
+            infini(nb.c_str(), len);
             break;
     }
 }

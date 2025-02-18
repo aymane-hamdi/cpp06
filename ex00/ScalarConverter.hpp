@@ -6,7 +6,7 @@
 /*   By: ahamdi <ahamdi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 21:18:06 by ahamdi            #+#    #+#             */
-/*   Updated: 2025/02/13 21:18:07 by ahamdi           ###   ########.fr       */
+/*   Updated: 2025/02/18 12:49:43 by ahamdi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,5 +41,5 @@ void character (const char *nb);
 void interger (const char *nb);
 void floating (const char *nb);
 void doubling (const char *nb);
-void infini(const char *nb);
+void infini(const char *nb, size_t len);
 #endif
