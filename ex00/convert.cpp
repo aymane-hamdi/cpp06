@@ -6,7 +6,7 @@
 /*   By: ahamdi <ahamdi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 21:17:45 by ahamdi            #+#    #+#             */
-/*   Updated: 2025/02/18 13:46:30 by ahamdi           ###   ########.fr       */
+/*   Updated: 2025/02/18 13:56:58 by ahamdi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -141,9 +141,10 @@ void floating(const char *nb)
 
 void doubling (const char *nb)
 {
-    double num;
-   
-    std::istringstream(nb) >> num;
+    char **endptr = NULL;
+    double  num;
+    num = strtod(nb, endptr);
+    
     int intPart = static_cast<int>(num);
     if (intPart >= 32 && intPart  <= 126)
         std::cout << "char :" << "'" << static_cast<char>(intPart)<< "'"<< std::endl;
